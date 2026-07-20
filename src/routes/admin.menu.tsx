@@ -1,17 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, Download, Plus, RotateCcw, Save, Trash2, Upload } from "lucide-react";
 import { defaultMenu, saveMenu, STORAGE_KEY, type Menu, type MenuItem } from "@/lib/menu";
 
-export const Route = createFileRoute("/admin/menu")({
-  component: MenuAdmin,
-  head: () => ({
-    meta: [
-      { title: "Menu editor — City Centre Cafe" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
-  }),
-});
+// Exported as a normal React page component for React Router
 
 function loadInitial(): Menu {
   if (typeof window === "undefined") return defaultMenu;
@@ -25,6 +16,13 @@ function loadInitial(): Menu {
 }
 
 function MenuAdmin() {
+  useEffect(() => {
+    document.title = 'Menu editor — City Centre Cafe'
+    const meta = document.querySelector('meta[name=robots]') || document.createElement('meta')
+    meta.setAttribute('name', 'robots')
+    meta.setAttribute('content', 'noindex, nofollow')
+    if (!document.querySelector('meta[name=robots]')) document.head.appendChild(meta)
+  }, [])
   const [menu, setMenu] = useState<Menu>(defaultMenu);
   const [status, setStatus] = useState<string>("");
   const fileRef = useRef<HTMLInputElement>(null);
@@ -215,3 +213,5 @@ function MenuAdmin() {
     </div>
   );
 }
+
+export default MenuAdmin

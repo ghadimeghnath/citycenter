@@ -1,37 +1,27 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Coffee, Clock, MapPin, Phone, Instagram, Facebook, Leaf, Croissant, Cake, Navigation, ShoppingBag, Star, MessageCircle, Quote } from "lucide-react";
-import heroImg from "@/assets/hero.jpg";
-import coffeeImg from "@/assets/coffee.jpg";
-import pastriesImg from "@/assets/pastries.jpg";
-import baristaImg from "@/assets/barista.jpg";
-import { useMenu } from "@/lib/menu";
+import React from 'react'
+import { Coffee, Clock, MapPin, Phone, Instagram, Facebook, Leaf, Croissant, Cake, Navigation, ShoppingBag, Star, MessageCircle, Quote } from 'lucide-react'
+import heroImg from '@/assets/hero.jpg'
+import coffeeImg from '@/assets/coffee.jpg'
+import pastriesImg from '@/assets/pastries.jpg'
+import baristaImg from '@/assets/barista.jpg'
+import { useMenu } from '@/lib/menu'
 
-export const Route = createFileRoute("/")({
-  component: Index,
-  head: () => ({
-    meta: [
-      { name: "keywords", content: "cafe madgaon, city centre cafe, coffee shop goa, specialty coffee madgaon, bakery madgaon" },
-    ],
-  }),
-});
-
-
-const PHONE_NUMBER = "088888 86166";
-const PHONE_TEL = "+918888886166";
-const WHATSAPP_URL = "https://wa.me/918888886166";
-const SWIGGY_URL = "https://www.swiggy.com/";
-const ZOMATO_URL = "https://www.zomato.com/";
-const DIRECTIONS_URL = "https://www.google.com/maps/dir/?api=1&destination=City+Centre+Cafe+Primavera+G+22+Ferreira+Garden+Gogol+Madgaon+Goa+403601";
-const MAP_EMBED_URL = "https://www.google.com/maps?q=Primavera+G+22+Ferreira+Garden+Gogol+Madgaon+Goa+403601&output=embed";
+const PHONE_NUMBER = '088888 86166'
+const PHONE_TEL = '+918888886166'
+const WHATSAPP_URL = 'https://wa.me/918888886166'
+const SWIGGY_URL = 'https://www.swiggy.com/'
+const ZOMATO_URL = 'https://www.zomato.com/'
+const DIRECTIONS_URL = 'https://www.google.com/maps/dir/?api=1&destination=City+Centre+Cafe+Primavera+G+22+Ferreira+Garden+Gogol+Madgaon+Goa+403601'
+const MAP_EMBED_URL = 'https://www.google.com/maps?q=Primavera+G+22+Ferreira+Garden+Gogol+Madgaon+Goa+403601&output=embed'
 
 const testimonials = [
-  { name: "Ananya S.", rating: 5, text: "Best coffee in Madgaon, hands down. The flat white is exactly how it should be — silky, balanced, no bitterness." },
-  { name: "Rohan D.", rating: 5, text: "My morning ritual. Fresh croissants, friendly staff, and the wifi actually works. Genuinely feels like a neighbourhood cafe." },
-  { name: "Priya K.", rating: 4, text: "Loved the prawn balchão croissant — such a clever Goan twist. Pastries sell out fast, come early on weekends." },
-];
+  { name: 'Ananya S.', rating: 5, text: 'Best coffee in Madgaon, hands down. The flat white is exactly how it should be — silky, balanced, no bitterness.' },
+  { name: 'Rohan D.', rating: 5, text: 'My morning ritual. Fresh croissants, friendly staff, and the wifi actually works. Genuinely feels like a neighbourhood cafe.' },
+  { name: 'Priya K.', rating: 4, text: 'Loved the prawn balchão croissant — such a clever Goan twist. Pastries sell out fast, come early on weekends.' },
+]
 
-function Index() {
-  const menu = useMenu();
+export default function Index() {
+  const menu = useMenu()
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Nav */}
@@ -61,44 +51,24 @@ function Index() {
 
       {/* Hero */}
       <section id="top" className="relative flex min-h-screen items-end overflow-hidden pt-24">
-        <img
-          src={heroImg}
-          alt="Warm interior of City Centre Cafe with Edison bulbs and wooden tables"
-          width={1600}
-          height={1200}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <img src={heroImg} alt="Warm interior of City Centre Cafe with Edison bulbs and wooden tables" width={1600} height={1200} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/60 to-espresso/10" />
         <div className="relative mx-auto w-full max-w-7xl px-6 pb-16 md:pb-24">
           <p className="mb-6 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-cream/80">
             <span className="h-px w-10 bg-copper" />
             Madgaon · Goa · Est. 2019
           </p>
-          <h1 className="max-w-4xl font-display text-5xl leading-[1.05] text-cream text-balance md:text-7xl lg:text-8xl">
-            A quiet corner in the heart of the city, poured one cup at a time.
-          </h1>
-          <p className="mt-6 max-w-xl text-base text-cream/80 md:text-lg">
-            Specialty coffee, fresh bakes, and slow mornings — served every day from a small kitchen in the middle of Madgaon.
-          </p>
+          <h1 className="max-w-4xl font-display text-5xl leading-[1.05] text-cream text-balance md:text-7xl lg:text-8xl">A quiet corner in the heart of the city, poured one cup at a time.</h1>
+          <p className="mt-6 max-w-xl text-base text-cream/80 md:text-lg">Specialty coffee, fresh bakes, and slow mornings — served every day from a small kitchen in the middle of Madgaon.</p>
           <div className="mt-8 flex items-center gap-2 text-sm text-cream/90">
-            <div className="flex items-center gap-1 text-copper">
-              {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-copper" />)}
-            </div>
+            <div className="flex items-center gap-1 text-copper">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-copper" />)}</div>
             <span className="font-medium">4.2</span>
             <span className="text-cream/60">· 65+ Google reviews</span>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={`tel:${PHONE_TEL}`} className="inline-flex items-center gap-2 rounded-full bg-copper px-6 py-3 text-sm font-medium text-espresso transition hover:brightness-110">
-              <Phone className="h-4 w-4" />
-              Call now — {PHONE_NUMBER}
-            </a>
-            <a href="#menu" className="rounded-full border border-cream/40 px-6 py-3 text-sm font-medium text-cream transition hover:bg-cream/10">
-              See the menu
-            </a>
-            <a href={DIRECTIONS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-cream/40 px-6 py-3 text-sm font-medium text-cream transition hover:bg-cream/10">
-              <Navigation className="h-4 w-4" />
-              Get directions
-            </a>
+            <a href={`tel:${PHONE_TEL}`} className="inline-flex items-center gap-2 rounded-full bg-copper px-6 py-3 text-sm font-medium text-espresso transition hover:brightness-110"><Phone className="h-4 w-4" />Call now — {PHONE_NUMBER}</a>
+            <a href="#menu" className="rounded-full border border-cream/40 px-6 py-3 text-sm font-medium text-cream transition hover:bg-cream/10">See the menu</a>
+            <a href={DIRECTIONS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-cream/40 px-6 py-3 text-sm font-medium text-cream transition hover:bg-cream/10"><Navigation className="h-4 w-4" />Get directions</a>
           </div>
         </div>
       </section>
@@ -223,9 +193,7 @@ function Index() {
             </h2>
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <div className="flex text-copper">
-              {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-copper" />)}
-            </div>
+            <div className="flex text-copper">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-copper" />)}</div>
             <span>on Google</span>
           </div>
         </div>
@@ -233,9 +201,7 @@ function Index() {
           {testimonials.map((t) => (
             <figure key={t.name} className="relative rounded-lg border border-border bg-card p-8 shadow-sm">
               <Quote className="absolute right-6 top-6 h-6 w-6 text-primary/20" />
-              <div className="flex text-copper">
-                {[...Array(t.rating)].map((_, i) => <Star key={i} className="h-4 w-4 fill-copper" />)}
-              </div>
+              <div className="flex text-copper">{[...Array(t.rating)].map((_, i) => <Star key={i} className="h-4 w-4 fill-copper" />)}</div>
               <blockquote className="mt-4 text-sm leading-relaxed text-foreground">"{t.text}"</blockquote>
               <figcaption className="mt-6 text-xs uppercase tracking-widest text-muted-foreground">— {t.name}</figcaption>
             </figure>
@@ -293,9 +259,7 @@ function Index() {
               <span className="text-sm font-medium text-primary opacity-0 transition group-hover:opacity-100">Open →</span>
             </a>
           </div>
-          <p className="mt-6 text-xs text-muted-foreground">
-            Minimum order ₹150. Delivery fees and timings set by the partner app.
-          </p>
+          <p className="mt-6 text-xs text-muted-foreground">Minimum order ₹150. Delivery fees and timings set by the partner app.</p>
         </div>
       </section>
 
@@ -304,24 +268,15 @@ function Index() {
         <div className="mx-auto grid max-w-7xl gap-16 px-6 md:grid-cols-2">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-copper">Visit us</p>
-            <h2 className="mt-4 font-display text-4xl leading-tight md:text-6xl">
-              Come sit awhile. We've saved you a table.
-            </h2>
-            <p className="mt-6 max-w-md text-cream/70">
-              Tucked inside Ferreira Garden in Gogol, just off the City Centre in Madgaon. Walk-ins welcome; small groups can reserve ahead.
-            </p>
+            <h2 className="mt-4 font-display text-4xl leading-tight md:text-6xl">Come sit awhile. We've saved you a table.</h2>
+            <p className="mt-6 max-w-md text-cream/70">Tucked inside Ferreira Garden in Gogol, just off the City Centre in Madgaon. Walk-ins welcome; small groups can reserve ahead.</p>
             <div className="mt-10 space-y-6">
               <div className="flex items-start gap-4">
                 <MapPin className="mt-1 h-5 w-5 text-copper" />
                 <div className="flex-1">
                   <p className="text-xs uppercase tracking-widest text-cream/50">Address</p>
                   <p className="mt-1">Primavera, G 22, Ferreira Garden,<br />Phase 3, Gogol, Madgaon, Goa 403601</p>
-                  <a
-                    href={DIRECTIONS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-2 rounded-full border border-copper/60 px-4 py-2 text-xs font-medium uppercase tracking-widest text-copper transition hover:bg-copper hover:text-espresso"
-                  >
+                  <a href={DIRECTIONS_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 rounded-full border border-copper/60 px-4 py-2 text-xs font-medium uppercase tracking-widest text-copper transition hover:bg-copper hover:text-espresso">
                     <Navigation className="h-3.5 w-3.5" />
                     Get directions
                   </a>
@@ -366,12 +321,8 @@ function Index() {
               </div>
             </div>
             <div className="mt-10 flex gap-3">
-              <a href="#" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full border border-cream/30 transition hover:bg-cream/10">
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a href="#" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full border border-cream/30 transition hover:bg-cream/10">
-                <Facebook className="h-4 w-4" />
-              </a>
+              <a href="#" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full border border-cream/30 transition hover:bg-cream/10"><Instagram className="h-4 w-4" /></a>
+              <a href="#" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full border border-cream/30 transition hover:bg-cream/10"><Facebook className="h-4 w-4" /></a>
             </div>
           </div>
           <form className="rounded-lg border border-cream/15 bg-cream/5 p-8 backdrop-blur">
@@ -396,9 +347,7 @@ function Index() {
                 Phone
                 <input type="tel" className="mt-2 w-full rounded-md border border-cream/20 bg-transparent px-4 py-3 text-sm text-cream placeholder:text-cream/40 focus:border-copper focus:outline-none" placeholder="+91" />
               </label>
-              <button type="button" className="mt-2 rounded-full bg-copper px-6 py-3 text-sm font-medium text-espresso transition hover:brightness-110">
-                Request reservation
-              </button>
+              <button type="button" className="mt-2 rounded-full bg-copper px-6 py-3 text-sm font-medium text-espresso transition hover:brightness-110">Request reservation</button>
             </div>
           </form>
         </div>
@@ -422,14 +371,12 @@ function Index() {
       <footer className="border-t border-border bg-background">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-10 text-sm text-muted-foreground md:flex-row">
           <div className="flex items-center gap-2">
-            <span className="grid h-7 w-7 place-items-center rounded-full bg-primary text-primary-foreground">
-              <Coffee className="h-3.5 w-3.5" />
-            </span>
+            <span className="grid h-7 w-7 place-items-center rounded-full bg-primary text-primary-foreground"><Coffee className="h-3.5 w-3.5" /></span>
             <span className="font-display text-lg text-foreground">City Centre Cafe</span>
           </div>
           <p>© {new Date().getFullYear()} City Centre Cafe, Madgaon. All rights reserved. · <a href="/admin/menu" className="underline-offset-4 hover:text-foreground hover:underline">Edit menu</a></p>
         </div>
       </footer>
     </div>
-  );
+  )
 }
