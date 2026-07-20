@@ -1,9 +1,9 @@
 import React from 'react'
 import { Coffee, Clock, MapPin, Phone, Instagram, Facebook, Leaf, Croissant, Cake, Navigation, ShoppingBag, Star, MessageCircle, Quote } from 'lucide-react'
-import heroImg from '@/assets/hero.jpg'
-import coffeeImg from '@/assets/coffee.jpg'
-import pastriesImg from '@/assets/pastries.jpg'
-import baristaImg from '@/assets/barista.jpg'
+import heroImg from '/assets/hero.webp'
+import coffeeImg from '/assets/img-1.webp'
+import pastriesImg from '/assets/img-2.webp'
+import baristaImg from '/assets/img-4.webp'
 import { useMenu } from '@/lib/menu'
 
 const PHONE_NUMBER = '088888 86166'
